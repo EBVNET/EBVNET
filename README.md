@@ -4,21 +4,7 @@
 
 > Pathology AI Team .
 ### 🏠 [Homepage]
-
-
-## Branch
-- dev_jieon
-- dev_mac
-## Master Branch List
-## Install
-### 개발 서버
-```sh
-./dev_server.sh
-```
-### 운용 서버
-```sh
-./production_server.sh
-```
+https://pathgo.org/
 
 ## Dependency
 
@@ -28,11 +14,16 @@
 #### Frontend
 - React
 
-### Backend
+### Python Module
 
 - Python 3.6
-- Flask
-
+- Flask 2.0.2
+- openslide-python 1.1.2
+- opencv-python 4.5.4.60
+- tensorboard==2.4.0
+- tensorboard-plugin-wit==1.7.0
+- tensorflow-estimator==2.3.0
+- tensorflow-gpu==2.3.0
 
 ### Database
 - Postgresql
