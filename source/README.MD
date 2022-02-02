@@ -5,4 +5,4 @@ This repository contains the description & source code for developing a deep lea
 
 ## Workflow
 - Our deep learning model, EBVNet, aims in detection of Epstein-Barr virus (EBV) from H&E-stained whole slide images (WSIs). 
-- 
+![Figure1]()
