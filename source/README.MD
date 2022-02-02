@@ -25,7 +25,7 @@ The model was implemented using Keras API.
 - _* Note that our models were trained with patches in HSV color space, not the RGB color space._ 
 
 ## EBVNet 
-- You can get the trained weights of EBVNet in this [link](https://drive.google.com/file/d/1hsNfuSXZuNjBhi4pxNkN5nNYgM_qArAQ/view?usp=sharing). Details for the weights are described below. 
+- You can get the trained models of EBVNet in this [link](https://drive.google.com/file/d/1hsNfuSXZuNjBhi4pxNkN5nNYgM_qArAQ/view?usp=sharing). Details for the weights are described below. 
 
 ### Tumor classifier 
 - Tumor classifier was developed based on ResNet50.
