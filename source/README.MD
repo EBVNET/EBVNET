@@ -81,16 +81,16 @@ The model was implemented using Keras API.
 ## Slide-level Classification 
 - `slide_level_classification.py` provides the code to make slide-level inference. 
 ```
-python slide_level_classification.py --patch-result results_HGH_after_fine_tuning.csv --tumor-threshold 0.5 --ebv-threshold 0.1 --ebv-pos-ratio-threshold 0.2
+python slide_level_classification.py --patch-result patch_result.csv --tumor-threshold 0.5 --ebv-threshold 0.1 --ebv-pos-ratio-threshold 0.2
 ```
-- `patch-result` : A csv file that contains **patch-level classification** result
+- `--patch-result` : A csv file that contains **patch-level classification** result
   - This csv file requires 4 columns 
     - 1) `patient_id` : ID of the patient to which the patch belongs. 
     - 2) `is_EBV_pos` : The EBV status of the patient to which the patch belongs. 
     - 3) `tumor_prediction` : Value from the Tumor classifier  
     - 4) `ebv_prediction` : Value from the EBV classifier
-- `tumor-threshold` : Threshold value for the Tumor classifier 
-- `ebv-threshold` : Threshold value for the EBV classifier
-- `ebv-pos-ratio-threshold` : Threshold value for final slide-level classification (# EBV Positive Tumor Patches / # Tumor Patches) 
+- `--tumor-threshold` : Threshold value for the Tumor classifier 
+- `--ebv-threshold` : Threshold value for the EBV classifier
+- `--ebv-pos-ratio-threshold` : Threshold value for final slide-level classification (# EBV Positive Tumor Patches / # Tumor Patches) 
 
 - Output : It returns the evaluation metrics (classification report, specificity, NPV, AUROC, AUPRC) 
