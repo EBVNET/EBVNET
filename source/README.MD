@@ -38,7 +38,7 @@ The model was implemented using Keras API.
     - Dropout layer (p=0.3)
     - Dense layer (dense unit 1664) (with ReLU activation function)
     - Dropout layer (p=0.3)
-    - Dense layer (dense unit 1) (with Sigmoid activation) 
+    - Dense layer (dense unit 1) (with Sigmoid activation function) 
   - Augmentation
     - All the patches for training and validation were augmented by rotation (90, 180, 270 degree) and flipping (vertical & horizontal).  
     - For extra augmentation of patches, we used [Albumentations](https://albumentations.ai/) library.
@@ -70,7 +70,7 @@ The model was implemented using Keras API.
       - Dropout layer (p=0.3)
       - Dense layer (dense unit 1568) (with ReLU activation function)
       - Dropout layer (p=0.3)
-      - Dense layer (dense unit 1) (with Sigmoid activation) 
+      - Dense layer (dense unit 1) (with Sigmoid activation function) 
   - Augmentation
     - Augmentation strategy was same with Tumor classifier. 
   - Hyperparameters
