@@ -29,6 +29,7 @@ The model was implemented using Keras API.
 
 ### Tumor classifier 
 - Tumor classifier was developed based on ResNet50.
+- It is binary classifier that classifies Normal vs. Tumor 
 - Based on base model (ResNet50), Tumor classifier returns the probability for tumor of input patch. 
   - Additional layers were appended to the base model. 
     - GlobalAveragePooling layer 
@@ -60,6 +61,7 @@ The model was implemented using Keras API.
 
 ### EBV classifier 
 - EBV classifier was developed based on InceptionV3.
+- - It is binary classifier that classifies EBV Positive Tumor vs. EBV Negative Tumor 
 - Based on base model (InceptionV3), EBV classifier returns the probability for EBV-positive tumor of input patch. 
     - Additional layers were appended to the base model. 
       - GlobalAveragePooling layer 
