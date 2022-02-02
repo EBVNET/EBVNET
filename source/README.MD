@@ -23,7 +23,7 @@ The model was implemented using Keras API.
 - To remove non-tissue white background, a threshold-based segmentation method was adopted using the Otsu algorithm after the WSIs were transferred to the HSV color space 
 - Only patches with a tissue/background ratio >= 0.7 were selected.
 - Patches where the tumor tissue accounts for more than 70% of area were classified as tumor class patches.
-- We resized patch to 512 x 512 size. 
+- We generated patch size of 1024 x 1024, then resized to 512 x 512 size. 
 - _* Note that our models were trained with patches in HSV color space, not the RGB color space._ 
 
 ## EBVNet 
