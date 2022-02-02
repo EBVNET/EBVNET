@@ -57,7 +57,7 @@ The model was implemented using Keras API.
     - Metrics : Accuracy
     - Callbacks : ReduceLROnPlateau, EarlyStopping
 
-- We provide the weights of trained Tumor classifiers. All the models requires input size of 512 x 512. 
+- We provide the models of trained Tumor classifiers. All the models requires input size of 512 x 512. 
   - 1) `Tumor_classifier.h5` : Tumor classifier (based on ResNet50). It was trained with TCGA slides. 
   - 2) `Tumor_classifier_ft.h5` : Tumor classifier (based on ResNet50). It was trained with TCGA slides and fine-tuned with ISH slides. 
 
@@ -79,7 +79,7 @@ The model was implemented using Keras API.
     - Metrics : Accuracy
     - Callbacks : ReduceLROnPlateau, EarlyStopping
 
-- We provide the weights of trained EBV classifiers. All the models requires input size of 512 x 512. 
+- We provide the models of trained EBV classifiers. All the models requires input size of 512 x 512. 
   - 1) `EBV_classifier.h5` : EBV classifier (based on InceptionV3). It was trained with TCGA slides. 
   - 2) `EBV_classifier_ft.h5` : EBV classifier (based on InceptionV3). It was trained with TCGA slides and fine-tuned with ISH slides. 
 
