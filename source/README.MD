@@ -89,9 +89,9 @@ python slide_level_classification.py --patch-result patch_result.csv --tumor-thr
 - `--patch-result` : A csv file that contains **patch-level classification** result
   - This csv file requires 4 columns 
     - 1) `patient_id` : ID of the patient to which the patch belongs. 
-    - 2) `is_EBV_pos` : The EBV status of the patient to which the patch belongs. 
-    - 3) `tumor_prediction` : Value from the Tumor classifier  
-    - 4) `ebv_prediction` : Value from the EBV classifier
+    - 2) `is_EBV_pos` : The EBV status of the patient to which the patch belongs. (Boolean)
+    - 3) `tumor_prediction` : Value from the Tumor classifier (Float between 0 and 1)
+    - 4) `ebv_prediction` : Value from the EBV classifier (Float between 0 and 1)
 - `--tumor-threshold` : Threshold value for the Tumor classifier 
 - `--ebv-threshold` : Threshold value for the EBV classifier
 - `--ebv-pos-ratio-threshold` : Threshold value for final slide-level classification (# EBV Positive Tumor Patches / # Tumor Patches) 
