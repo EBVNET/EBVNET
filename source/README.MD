@@ -30,7 +30,7 @@ The model was implemented using Keras API.
 - You can get the trained models of EBVNet in this [link](https://drive.google.com/file/d/1hsNfuSXZuNjBhi4pxNkN5nNYgM_qArAQ/view?usp=sharing). Details for the weights are described below. 
 
 ### Tumor classifier 
-- Tumor classifier was developed based on ResNet50.
+- Tumor classifier was developed based on [ResNet50].(https://www.tensorflow.org/api_docs/python/tf/keras/applications/resnet50/ResNet50)
 - It is binary classifier that classifies Normal vs. Tumor 
 - Based on base model (ResNet50), Tumor classifier returns the probability for tumor of input patch. 
   - Additional layers were appended to the base model. 
@@ -62,7 +62,7 @@ The model was implemented using Keras API.
   - 2) `Tumor_classifier_ft.h5` : Tumor classifier (based on ResNet50). It was trained with TCGA slides and fine-tuned with ISH slides. 
 
 ### EBV classifier 
-- EBV classifier was developed based on InceptionV3.
+- EBV classifier was developed based on [InceptionV3].(https://www.tensorflow.org/api_docs/python/tf/keras/applications/inception_v3/InceptionV3)
 - It is binary classifier that classifies EBV Positive Tumor vs. EBV Negative Tumor 
 - Based on base model (InceptionV3), EBV classifier returns the probability for EBV-positive tumor of input patch. 
     - Additional layers were appended to the base model. 
