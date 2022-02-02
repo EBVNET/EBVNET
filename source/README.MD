@@ -23,15 +23,18 @@ The model was implemented using Keras API.
 - To remove non-tissue white background, a threshold-based segmentation method was adopted using the Otsu algorithm after the WSIs were transferred to the HSV color space 
 - We resized patch to 512 x 512 size. 
 
-## Tumor classifier 
+## EBVNet 
+- You can get the trained weights of EBVNet in this [link](https://drive.google.com/file/d/1hsNfuSXZuNjBhi4pxNkN5nNYgM_qArAQ/view?usp=sharing). Details for the weights are described below. 
+
+### Tumor classifier 
 - Tumor classifier was developed based on ResNet50.
 - Based on base model (ResNet50), Tumor classifier returns the probability for tumor of input patch. 
   - Additional layers were appended to the base model. 
     - GlobalAveragePooling layer 
-    - Dropout layer 
-    - Dense layer (with ReLU activation function)
-    - Dropout layer
-    - Dense layer (with Sigmoid activation) 
+    - Dropout layer (p=0.3)
+    - Dense layer (dense unit 1664) (with ReLU activation function)
+    - Dropout layer (p=0.3)
+    - Dense layer (dense unit 1) (with Sigmoid activation) 
   - Augmentation
     - All the patches for training and validation were augmented by rotation (90, 180, 270 degree) and flipping (vertical & horizontal).  
     - For extra augmentation of patches, we used [Albumentations](https://albumentations.ai/) library.
@@ -45,20 +48,47 @@ The model was implemented using Keras API.
       ])
       ```
   - Hyperparameters
-    - Adam optimizer (initial learning rate 1e-3)
+    - Adam optimizer (initial learning rate 1e-4)
     - Loss : Binary crossentropy 
     - Metrics : Accuracy
     - Callbacks : ReduceLROnPlateau, EarlyStopping
 
 - We provide the weights of trained Tumor classifiers. All the models requires input size of 512 x 512. 
-  - 1) `Tumor_classifier.hdf5` : Tumor classifier (based on ResNet50). It was trained with TCGA slides. 
-  - 2) `Tumor_classifier_ft.hdf5` : Tumor classifier (based on ResNet50). It was trained with TCGA slides and fine-tuned with ISH slides. 
+  - 1) `Tumor_classifier.h5` : Tumor classifier (based on ResNet50). It was trained with TCGA slides. 
+  - 2) `Tumor_classifier_ft.h5` : Tumor classifier (based on ResNet50). It was trained with TCGA slides and fine-tuned with ISH slides. 
 
-## EBV classifier 
+### EBV classifier 
 - EBV classifier was developed based on InceptionV3.
 - Based on base model (InceptionV3), EBV classifier returns the probability for EBV-positive tumor of input patch. 
-  - Architecture and hyperparameters are same as Tumor classifier. 
+    - Additional layers were appended to the base model. 
+      - GlobalAveragePooling layer 
+      - Dropout layer (p=0.3)
+      - Dense layer (dense unit 1568) (with ReLU activation function)
+      - Dropout layer (p=0.3)
+      - Dense layer (dense unit 1) (with Sigmoid activation) 
+  - Augmentation
+    - Augmentation strategy was same with Tumor classifier. 
+  - Hyperparameters
+    - Adam optimizer (initial learning rate 1e-3)
+    - Loss : Binary crossentropy 
+    - Metrics : Accuracy
+    - Callbacks : ReduceLROnPlateau, EarlyStopping
 
 - We provide the weights of trained EBV classifiers. All the models requires input size of 512 x 512. 
-  - 1) `EBV_classifier.hdf5` : EBV classifier (based on InceptionV3). It was trained with TCGA slides. 
-  - 2) `EBV_classifier_ft.hdf5` : EBV classifier (based on InceptionV3). It was trained with TCGA slides and fine-tuned with ISH slides. 
+  - 1) `EBV_classifier.h5` : EBV classifier (based on InceptionV3). It was trained with TCGA slides. 
+  - 2) `EBV_classifier_ft.h5` : EBV classifier (based on InceptionV3). It was trained with TCGA slides and fine-tuned with ISH slides. 
+
+## Slide-level Classification 
+- `slide_level_classification.py` provides the code to make slide-level inference. 
+```
+python slide_level_classification.py --patch-result results_HGH_after_fine_tuning.csv --tumor-threshold 0.5 --ebv-threshold 0.1 --ebv-pos-ratio-threshold 0.2
+```
+- `patch-result` : A csv file that contains **patch-level classification** result
+  - This csv file requires 4 columns 
+    - 1) `patient_id` : ID of the patient to which the patch belongs. 
+    - 2) `is_EBV_pos` : The EBV status of the patient to which the patch belongs. 
+    - 3) `tumor_prediction` : Value from the Tumor classifier  
+    - 4) `ebv_prediction` : Value from the EBV classifier
+- `tumor-threshold` : Threshold value for the Tumor classifier 
+- `ebv-threshold` : Threshold value for the EBV classifier
+- `ebv-pos-ratio-threshold` : Threshold value for final slide-level classification (# EBV Positive Tumor Patches / # Tumor Patches) 
