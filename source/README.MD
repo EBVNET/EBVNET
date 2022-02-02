@@ -92,3 +92,5 @@ python slide_level_classification.py --patch-result results_HGH_after_fine_tunin
 - `tumor-threshold` : Threshold value for the Tumor classifier 
 - `ebv-threshold` : Threshold value for the EBV classifier
 - `ebv-pos-ratio-threshold` : Threshold value for final slide-level classification (# EBV Positive Tumor Patches / # Tumor Patches) 
+
+- Output : It returns the evaluation metrics (classification report, specificity, NPV, AUROC, AUPRC) 
