@@ -1,7 +1,7 @@
 # Deep Learning Model to Predict EBV-Associated Gastric Cancer
 
 ## Introduction
-This repository contains the description & source code for developing a deep learning-based model to predict EBV-associated gastric cancer. 
+This repository contains the description & source code for developing **a deep learning-based model to predict EBV-associated gastric cancer.**
 
 The model was implemented using Keras API. 
 
@@ -9,12 +9,12 @@ The model was implemented using Keras API.
 - Our deep learning model, EBVNet, aims in detection of Epstein-Barr virus (EBV) from H&E-stained whole slide images (WSIs). 
 <img src="./figures/figure1.jpg" width="60%" height="60%">
 
-- Patch-wise classification
+- **Patch-wise classification**
   - 1. From WSI, we extract patch by sliding window method.
-  - 2. Tumor classifier (based on ResNet50 or InceptionV3) : Normal vs. Tumor
-  - 3. EBV classifier (based on ResNet50 or InceptionV3) : EBV Positive Tumor vs. EBV Negative Tumor 
+  - 2. Tumor classifier : Normal vs. Tumor
+  - 3. EBV classifier : EBV Positive Tumor vs. EBV Negative Tumor 
   
-- Slide-wise classification 
+- **Slide-wise classification**
   - 1. Patch-wise classification for all the patches extracted from single patient's WSI. 
   - 2. If **ebv-pos-ratio (# EBV Positive Tumor Patches / # Tumor Patches)** exceeds pre-defined threshold, the WSI is classified as EBV Positive. 
 
