@@ -10,7 +10,7 @@ The model was implemented using Keras API.
 <img src="./figures/figure1.jpg" width="60%" height="60%">
 
 - **Patch-wise classification**
-  - 1. From WSI, we extract patch by sliding window method.
+  - 1. From WSI, we generate tissue patches 
   - 2. Tumor classifier : Normal vs. Tumor
   - 3. EBV classifier : EBV Positive Tumor vs. EBV Negative Tumor 
   
