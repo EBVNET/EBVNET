@@ -7,7 +7,7 @@ The model was implemented using Keras API.
 
 ## Workflow
 - Our deep learning model, EBVNet, aims in detection of Epstein-Barr virus (EBV) from H&E-stained whole slide images (WSIs). 
-<img src="./figures/figure1.jpg" width="60%" height="60%">
+<img src="./figures/figure1.jpg" width="70%" height="70%">
 
 - **Patch-wise classification**
   - 1. From WSI, we generate tissue patches 
